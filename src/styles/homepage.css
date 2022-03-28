@@ -1,0 +1,13 @@
+#card-body {
+  background: var(--complimentary-bg-color);
+  height: 100vh;
+  overflow: auto;
+}
+
+.card-wrapper {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  justify-content: center;
+}

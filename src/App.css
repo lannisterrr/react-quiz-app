@@ -1,0 +1,26 @@
+@import url('https://cerebrumui.netlify.app/style.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import './styles/homepage.css';
+@import './styles/quizCard.css';
+@import './styles/quizPage.css';
+
+:root {
+  --complimentary-text-color: #ffd200;
+  --right-answer: #2eb086;
+}
+
+.yellow-text {
+  color: var(--complimentary-text-color);
+}
+
+.green-bg {
+  background: var(--right-answer);
+}
+
+.red-bg {
+  background: var(--primary-color);
+}
+
+.grey-bg {
+  background: var(--grey-color);
+}
