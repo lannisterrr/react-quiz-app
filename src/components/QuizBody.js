@@ -18,7 +18,7 @@ function QuizBody() {
           <div class="quiz__options m-v-6">
             {data[0].questions[state.currentQuestion].answerOptions.map(
               item => (
-                <Options key={Math.random()} item={item} />
+                <Options key={Math.random()} item={item} data={data} />
               )
             )}
           </div>
