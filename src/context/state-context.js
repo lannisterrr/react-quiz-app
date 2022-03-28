@@ -7,6 +7,7 @@ const useQuizState = () => useContext(stateContext);
 const initialState = {
   showModal: false,
   currentQuestion: 0,
+  loader: false,
 };
 
 function stateReducer(state, action) {
@@ -21,6 +22,12 @@ function stateReducer(state, action) {
       return {
         ...state,
         currentQuestion: state.currentQuestion + 1,
+      };
+
+    case 'LOADER_TOGGLE':
+      return {
+        ...state,
+        loader: action.payload,
       };
 
     default:
