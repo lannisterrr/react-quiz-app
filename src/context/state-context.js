@@ -8,6 +8,9 @@ const initialState = {
   showModal: false,
   currentQuestion: 0,
   loader: false,
+  showScore: false,
+  score: 0,
+  correct: false,
 };
 
 function stateReducer(state, action) {
@@ -28,6 +31,19 @@ function stateReducer(state, action) {
       return {
         ...state,
         loader: action.payload,
+      };
+
+    case 'SCORE_SHOW':
+      return {
+        ...state,
+        showScore: true,
+      };
+
+    case 'INCREASE_SCORE':
+      return {
+        ...state,
+        score: state.score + 1,
+        correct: true,
       };
 
     default:

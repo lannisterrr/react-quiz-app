@@ -9,6 +9,10 @@ function QuizBody() {
     <>
       {state.loader ? (
         <Loader />
+      ) : state.showScore ? (
+        <div className="heading-3 t-c-3 center-text p-v-6">
+          You Scored {state.score} out of {data[0].questions.length}
+        </div>
       ) : (
         <main class="quiz__wrapper box-shadow-light p-4">
           <h1 class="heading-3 t-c-1 p-v-6 quiz__question">
