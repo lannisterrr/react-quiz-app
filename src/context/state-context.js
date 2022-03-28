@@ -6,6 +6,7 @@ const useQuizState = () => useContext(stateContext);
 
 const initialState = {
   showModal: false,
+  currentQuestion: 0,
 };
 
 function stateReducer(state, action) {
@@ -14,6 +15,12 @@ function stateReducer(state, action) {
       return {
         ...state,
         showModal: !state.showModal,
+      };
+
+    case 'NEXT_QUESTION':
+      return {
+        ...state,
+        currentQuestion: state.currentQuestion + 1,
       };
 
     default:

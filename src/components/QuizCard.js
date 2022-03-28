@@ -3,11 +3,11 @@ import { useQuizState } from '../context/state-context';
 function QuizCard() {
   const { dispatch } = useQuizState();
   return (
-    <div
-      onClick={() => dispatch({ type: 'MODAL_SHOW' })}
-      class="container-basic"
-    >
-      <div class="content-basic">
+    <div class="container-basic">
+      <div
+        class="content-basic"
+        onClick={() => dispatch({ type: 'MODAL_SHOW' })}
+      >
         <div class="img-div-basic text-over-container">
           <img
             src="https://images.unsplash.com/photo-1633977264416-8c66c1300e63?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
