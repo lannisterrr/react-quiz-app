@@ -10,7 +10,7 @@ const initialState = {
   loader: false,
   showScore: false,
   score: 0,
-  correct: false,
+  currentQuizActive: 0,
 };
 
 function stateReducer(state, action) {
@@ -19,6 +19,7 @@ function stateReducer(state, action) {
       return {
         ...state,
         showModal: !state.showModal,
+        currentQuizActive: state.currentQuizActive + action.payload,
       };
 
     case 'NEXT_QUESTION':
@@ -43,7 +44,6 @@ function stateReducer(state, action) {
       return {
         ...state,
         score: state.score + 1,
-        correct: true,
       };
 
     default:
@@ -53,7 +53,6 @@ function stateReducer(state, action) {
 
 function StateProvider({ children }) {
   const [state, dispatch] = useReducer(stateReducer, initialState);
-
   const contextValue = {
     state,
     dispatch,

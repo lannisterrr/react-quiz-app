@@ -13,16 +13,20 @@
   color: var(--complimentary-text-color);
 }
 
+.grey-bg {
+  background: var(--grey-color);
+}
+
+.grey-bg:hover {
+  filter: brightness(80%);
+}
+
 .green-bg {
   background: var(--right-answer);
 }
 
 .red-bg {
   background: var(--primary-color);
-}
-
-.grey-bg {
-  background: var(--grey-color);
 }
 
 .loader {
