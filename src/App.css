@@ -13,6 +13,14 @@
   color: var(--complimentary-text-color);
 }
 
+.grey-bg {
+  background: var(--grey-color);
+}
+
+.grey-bg:hover {
+  filter: brightness(80%);
+}
+
 .green-bg {
   background: var(--right-answer);
 }
@@ -21,6 +29,28 @@
   background: var(--primary-color);
 }
 
-.grey-bg {
-  background: var(--grey-color);
+.loader {
+  border: 8px solid var(--secondary-color);
+  border-top: 8px solid var(--primary-color);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  animation: spin 0.6s linear infinite;
+}
+
+.loader-center {
+  margin: 0 auto;
+}
+
+.position-loader {
+  margin-top: 10rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
