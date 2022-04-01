@@ -19,6 +19,7 @@ function Options({ item }) {
   // 4. what clicked = true or not , if true then green or red
 
   const changeBgColor = (item, index) => {
+    // Not yet working code
     data[0].questions[state.currentQuestion].answerOptions.map(item => {
       return item.isCorrect ? { ...item, setSelect: true } : item;
     });
