@@ -54,21 +54,3 @@ function Options({ item }) {
 }
 
 export default Options;
-
-/*
- const changeQuestionHandler = isCorrect => {
-    isCorrect && dispatch({ type: 'INCREASE_SCORE' });
-    if (state.currentQuestion + 1 < data[0].questions.length) {
-      dispatch({ type: 'LOADER_TOGGLE', payload: true });
-      setTimeout(() => {
-        dispatch({
-          type: 'NEXT_QUESTION',
-        });
-        dispatch({ type: 'LOADER_TOGGLE', payload: false });
-      }, 1200);
-    } else {
-      dispatch({ type: 'SCORE_SHOW' });
-    }
-  };
-
-*/
