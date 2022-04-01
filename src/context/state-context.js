@@ -43,7 +43,7 @@ function stateReducer(state, action) {
     case 'INCREASE_SCORE':
       return {
         ...state,
-        score: state.score + 1,
+        score: state.score + 10,
       };
 
     default:

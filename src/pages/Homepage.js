@@ -9,7 +9,7 @@ function Homepage() {
       <main className="card-wrapper">
         <QuizCard quizIndex={0}>Quiz 1 : Capitals of the World </QuizCard>
         <QuizCard quizIndex={1}>Quiz 2 : Do you know about France? </QuizCard>
-        <QuizCard quizIndex={2}>Quiz 1 : Do you know about India?</QuizCard>
+        <QuizCard quizIndex={2}>Quiz 3 : Do you know about India?</QuizCard>
       </main>
       <Modal />
     </div>
