@@ -46,6 +46,9 @@ function stateReducer(state, action) {
         score: state.score + 10,
       };
 
+    case 'RESET':
+      return initialState;
+
     default:
       throw new Error(`Unknown action type: ${action.type}`);
   }

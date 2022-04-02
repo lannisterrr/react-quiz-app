@@ -19,6 +19,7 @@ function Options({ item }) {
   // 4. what clicked = true or not , if true then green or red
 
   const changeBgColor = (item, index) => {
+    // Not yet working code
     data[0].questions[state.currentQuestion].answerOptions.map(item => {
       return item.isCorrect ? { ...item, setSelect: true } : item;
     });
@@ -40,7 +41,6 @@ function Options({ item }) {
     }
   };
 
-  console.log(item);
   return (
     <div
       onClick={() => changeQuestionHandler(item)}
@@ -54,21 +54,3 @@ function Options({ item }) {
 }
 
 export default Options;
-
-/*
- const changeQuestionHandler = isCorrect => {
-    isCorrect && dispatch({ type: 'INCREASE_SCORE' });
-    if (state.currentQuestion + 1 < data[0].questions.length) {
-      dispatch({ type: 'LOADER_TOGGLE', payload: true });
-      setTimeout(() => {
-        dispatch({
-          type: 'NEXT_QUESTION',
-        });
-        dispatch({ type: 'LOADER_TOGGLE', payload: false });
-      }, 1200);
-    } else {
-      dispatch({ type: 'SCORE_SHOW' });
-    }
-  };
-
-*/

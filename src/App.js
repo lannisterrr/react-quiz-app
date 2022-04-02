@@ -1,7 +1,7 @@
 import './App.css';
 import Homepage from './pages/Homepage';
 import QuizPage from './pages/QuizPage';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -9,6 +9,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="quiz" element={<QuizPage />} />
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: '1rem' }}>
+              <p className="heading-1">There's nothing here!</p>
+              <Link to="/" className="heading-2">
+                GO to Home
+              </Link>
+            </main>
+          }
+        />
       </Routes>
     </div>
   );

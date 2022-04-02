@@ -4,11 +4,17 @@ import { useQuizState } from '../context/state-context';
 import { data } from '../data';
 
 function QuizHeader() {
-  const { state } = useQuizState();
+  const { state, dispatch } = useQuizState();
   return (
     <header>
-      <h1 className="heading-2 yellow-text center-text">Brain Anatomy</h1>
-      <Link to="/" className="header__home-link t-c-4 f-7">
+      <h1 className="heading-2 yellow-text center-text">
+        {data[state.currentQuizActive].name}
+      </h1>
+      <Link
+        to="/"
+        onClick={() => dispatch({ type: 'RESET' })}
+        className="header__home-link t-c-4 f-7"
+      >
         Home
       </Link>
       <div className="header__subtitle">
