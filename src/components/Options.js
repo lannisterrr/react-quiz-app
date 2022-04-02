@@ -41,7 +41,6 @@ function Options({ item }) {
     }
   };
 
-  console.log(item);
   return (
     <div
       onClick={() => changeQuestionHandler(item)}
