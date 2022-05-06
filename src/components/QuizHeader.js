@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuizState } from '../context/state-context';
 import { data } from '../data';
+import { db } from '../firebaseApp';
+import { addDoc, collection } from 'firebase/firestore';
 
 function QuizHeader() {
   const { state, dispatch } = useQuizState();
+
   return (
     <header>
       <h1 className="heading-2 yellow-text center-text">

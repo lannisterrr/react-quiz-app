@@ -2,7 +2,7 @@ import './App.css';
 import Homepage from './pages/Homepage';
 import QuizPage from './pages/QuizPage';
 import { Routes, Route, Link } from 'react-router-dom';
-
+import { app } from './firebaseApp';
 function App() {
   return (
     <div className="App">

@@ -11,6 +11,7 @@ const initialState = {
   showScore: false,
   score: 0,
   currentQuizActive: 0,
+  optionAnswered: [],
 };
 
 function stateReducer(state, action) {
@@ -48,6 +49,12 @@ function stateReducer(state, action) {
 
     case 'RESET':
       return initialState;
+
+    case 'ADD_ANSWERED_OPTION':
+      return {
+        ...state,
+        optionAnswered: [...state.optionAnswered, action.payload],
+      };
 
     default:
       throw new Error(`Unknown action type: ${action.type}`);

@@ -1,0 +1,410 @@
+[
+  {
+    "id": 1,
+    "name": "Capitals",
+    "questions": [
+      {
+        "questionId": 1,
+        "questionText": "What is the capital of france?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "New York",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "London",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Paris",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "Dublin",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "What is the capital of India?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "New Delhi",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "London",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Paris",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Mumbai",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "What is the capital of Pakistan?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "New York",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Islamabad",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "karachi",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Lahore",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "What is the capital of Italy?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "Venice",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "London",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Rome",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "Capetown",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "What is the capital of Bangladesh?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "Amritsar",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Dhaka",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "Kolkata",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Portland",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "france",
+    "questions": [
+      {
+        "questionId": 1,
+        "questionText": "What is the name of the French national anthem?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "La Niçoise",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "La Parisienne",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "La France",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "La Marseillaise",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "What currency is used in France?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "The Pound",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "The france",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "The Euro",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "The lira",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "When did France last win the Football World Cup?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "1994",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "1998",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "2002",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "2006",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "Who leads the country in France?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "A Prime Minister",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "A king or a queen",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "A President",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "A member of parliament",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "How many countries in the world speak French?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "5",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "29",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "1",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "12",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "India",
+    "questions": [
+      {
+        "questionId": 1,
+        "questionText": "Which of these holds the title of the largest cricket stadium in the world?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "Chepauk Stadium, Chennai",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Wankhede Stadium, Mumbai",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Narendra Modi Stadium, Ahmedabad",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "Arun Jaitley Stadium, Delhi",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "Which city of India is also known as the ‘Venice of the East’?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "Alleppey, Kerala",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "Cherrapunji, Meghalaya",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Gokarna, Karnataka",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Pondicherry",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "which of this is known as the Yoga Capital of India?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "Varanasi, Uttar Pradesh",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Rishikesh, Uttarakhand",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "Haridwar, Uttarakhand",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Dharamshala, Himachal Pradesh",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "Why is Bengaluru known as the ‘Silicon Valley of India’?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "For being the nation’s leading IT exporter",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "For making a silicon park",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "For a large number of silicon industries",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "None of the above",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "questionId": 1,
+        "questionText": "Named after a famous British hunter turned naturalist, what is the name of India’s first national park?",
+        "answerOptions": [
+          {
+            "id": 1,
+            "answerText": "Nokrek National Park",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Jim Corbett National Park",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answerText": "Mount Harriet National Park",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answerText": "Murlen National Park",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  }
+]
