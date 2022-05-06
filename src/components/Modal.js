@@ -1,11 +1,11 @@
 import { useQuizState } from '../context/state-context';
 import { useNavigate } from 'react-router-dom';
+import reactDom from 'react-dom';
 
 function Modal() {
   const { state, dispatch } = useQuizState();
   const navigate = useNavigate();
-
-  return (
+  return reactDom.createPortal(
     <div
       className={`modal-overlay modal-container z-index-x-l ${
         state.showModal && 'show-modal'
@@ -15,7 +15,7 @@ function Modal() {
         <div className="modal-header p-4">
           <h3 className="heading-3">Rules Before you start</h3>
           <i
-            onClick={() => dispatch({ type: 'MODAL_SHOW', payload: 0 })}
+            onClick={() => dispatch({ type: 'MODAL_SHOW' })}
             className="fa fa-times f-8 close-icon close-modal"
           ></i>
         </div>
@@ -36,14 +36,15 @@ function Modal() {
             Close
           </button>
           <button
-            onClick={() => navigate('/quiz')}
+            onClick={() => navigate(`/quiz/${state.currentQuizActive}`)}
             className="btn btn-danger m-h-3 t-c-1"
           >
             Let's Play!
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById('portal')
   );
 }
 

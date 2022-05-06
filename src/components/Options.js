@@ -1,26 +1,19 @@
-import { data } from '../data';
-
 import React, { useState } from 'react';
 import { useQuizState } from '../context/state-context';
 
-function Options({ item }) {
+function Options({ item, quiz }) {
+  console.log(item);
   const { state, dispatch } = useQuizState();
 
   const [correct, setCorrect] = useState(null);
-
-
   const changeBgColor = item => {
     setCorrect(item.isCorrect);
   };
 
   const changeQuestionHandler = item => {
     item.isCorrect && dispatch({ type: 'INCREASE_SCORE' });
-    if (
-      state.currentQuestion + 1 <
-      data[state.currentQuizActive].questions.length
-    ) {
+    if (state.currentQuestion + 1 < quiz.questions.length) {
       changeBgColor(item);
-      dispatch({ type: 'ADD_ANSWERED_OPTION', payload: item.id });
       setTimeout(() => {
         dispatch({
           type: 'NEXT_QUESTION',
@@ -44,5 +37,3 @@ function Options({ item }) {
 }
 
 export default Options;
-
-

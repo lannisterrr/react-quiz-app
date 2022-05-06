@@ -10,7 +10,7 @@ const initialState = {
   loader: false,
   showScore: false,
   score: 0,
-  currentQuizActive: 0,
+  currentQuizActive: '',
   optionAnswered: [],
 };
 
@@ -20,7 +20,7 @@ function stateReducer(state, action) {
       return {
         ...state,
         showModal: !state.showModal,
-        currentQuizActive: state.currentQuizActive + action.payload,
+        currentQuizActive: action.payload,
       };
 
     case 'NEXT_QUESTION':

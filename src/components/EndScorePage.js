@@ -1,15 +1,14 @@
 import React from 'react';
 import { useQuizState } from '../context/state-context';
 
-function EndScorePage({ data }) {
+function EndScorePage({ quiz }) {
   const { state } = useQuizState();
   return (
     <>
       <div className="heading-3 t-c-3 center-text p-v-6">
-        You Scored {state.score} out of{' '}
-        {data[state.currentQuizActive].questions.length * 10}
+        You Scored {state.score} out of {quiz.questions.length * 10}
       </div>
-      {data[state.currentQuizActive].questions.map(item => (
+      {quiz.questions.map(item => (
         <main className="quiz__wrapper box-shadow-light p-4">
           <h1 className="heading-3 t-c-1 p-v-6 quiz__question">
             {item.questionText}
