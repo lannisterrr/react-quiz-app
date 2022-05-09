@@ -4,6 +4,7 @@ import QuizPage from './pages/QuizPage';
 import { Routes, Route, Link } from 'react-router-dom';
 import { app } from './firebaseApp';
 import EndScorePage from './components/EndScorePage';
+import { Auth } from './pages/Auth';
 function App() {
   return (
     <div className="App">
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/quiz/:quizId" element={<QuizPage />} />
         <Route path="/score" element={<EndScorePage />} />
+        <Route path="/auth" element={<Auth />} />
         <Route
           path="*"
           element={

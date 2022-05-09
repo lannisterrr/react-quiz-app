@@ -46,7 +46,15 @@ function stateReducer(state, action) {
     case 'ADD_QUESTION_DATA':
       return {
         ...state,
-        optionAnswered: [...state.optionAnswered, { ...action.payload }],
+        optionAnswered: state.optionAnswered.some(
+          el => el.questionIndex === action.payload.questionIndex
+        )
+          ? state.optionAnswered.map(item => {
+              return item.questionIndex === action.payload.questionIndex
+                ? action.payload
+                : item;
+            })
+          : [...state.optionAnswered, { ...action.payload }],
       };
 
     default:
