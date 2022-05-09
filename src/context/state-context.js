@@ -8,7 +8,6 @@ const initialState = {
   showModal: false,
   currentQuestion: 0,
   loader: false,
-  showScore: false,
   score: 0,
   currentQuizActive: '',
   optionAnswered: [],
@@ -35,12 +34,6 @@ function stateReducer(state, action) {
         loader: action.payload,
       };
 
-    case 'SCORE_SHOW':
-      return {
-        ...state,
-        showScore: true,
-      };
-
     case 'INCREASE_SCORE':
       return {
         ...state,
@@ -50,10 +43,10 @@ function stateReducer(state, action) {
     case 'RESET':
       return initialState;
 
-    case 'ADD_ANSWERED_OPTION':
+    case 'ADD_QUESTION_DATA':
       return {
         ...state,
-        optionAnswered: [...state.optionAnswered, action.payload],
+        optionAnswered: [...state.optionAnswered, { ...action.payload }],
       };
 
     default:

@@ -3,12 +3,14 @@ import Homepage from './pages/Homepage';
 import QuizPage from './pages/QuizPage';
 import { Routes, Route, Link } from 'react-router-dom';
 import { app } from './firebaseApp';
+import EndScorePage from './components/EndScorePage';
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/quiz/:quizId" element={<QuizPage />} />
+        <Route path="/score" element={<EndScorePage />} />
         <Route
           path="*"
           element={

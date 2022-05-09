@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
 import { useQuizState } from '../context/state-context';
+import { useNavigate } from 'react-router-dom';
 
-function Options({ item, quiz }) {
-  console.log(item);
+function Options({ item, quiz, index }) {
   const { state, dispatch } = useQuizState();
-
+  const navigate = useNavigate();
   const [correct, setCorrect] = useState(null);
   const changeBgColor = item => {
     setCorrect(item.isCorrect);
   };
-
   const changeQuestionHandler = item => {
     item.isCorrect && dispatch({ type: 'INCREASE_SCORE' });
-    if (state.currentQuestion + 1 < quiz.questions.length) {
-      changeBgColor(item);
-      setTimeout(() => {
-        dispatch({
-          type: 'NEXT_QUESTION',
-        });
-      }, 1200);
-    } else {
-      dispatch({ type: 'SCORE_SHOW' });
+    const nextQuestion = state.currentQuestion + 1;
+    if (nextQuestion === quiz.questions.length) {
+      navigate('/score');
     }
+    changeBgColor(item);
+    dispatch({
+      type: 'ADD_QUESTION_DATA',
+      payload: {
+        userAnswerId: item.id,
+        questionIndex: state.currentQuestion,
+        answerIndex: index,
+      },
+    });
+    setTimeout(() => {
+      dispatch({
+        type: 'NEXT_QUESTION',
+      });
+    }, 1200);
   };
 
   return (
