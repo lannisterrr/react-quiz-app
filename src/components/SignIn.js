@@ -1,11 +1,29 @@
+import { useEffect } from 'react';
 import { Checkbox } from './Checkbox';
 import { useAuth } from '../context/auth-context';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { GoogleButton } from 'react-google-button';
 
 function SignIn({ formError, setFormError }) {
-  const { dispatch, setIsActive, signIn, loginState } = useAuth();
+  const { dispatch, setIsActive, signIn, loginState, googleSignIn, user } =
+    useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    if (user !== null) {
+      navigate('/home');
+    }
+  }, [user]);
+
   const logInFormHandler = async e => {
     e.preventDefault();
     setFormError({
@@ -24,14 +42,9 @@ function SignIn({ formError, setFormError }) {
   };
   return (
     <div className="form login">
-      <div className="flex">
+      <div className="flex space-between">
         <span className="form__title heading-3">Login</span>
-        <button
-          onClick={() => dispatch({ type: 'FILL_GUEST' })}
-          className="btn outline-danger t-c-2 final-cta__2  m-l-auto"
-        >
-          Sign in with Google
-        </button>
+        <GoogleButton onClick={handleGoogleSignIn} />
       </div>
       <form onSubmit={logInFormHandler}>
         <div className="input-field">

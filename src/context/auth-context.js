@@ -6,11 +6,15 @@ import {
   useState,
 } from 'react';
 import { initialState, signInReducer } from '../reducers/auth-reducer';
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithRedirect,
 } from 'firebase/auth';
 import { auth } from '../firebaseApp';
 
@@ -36,6 +40,12 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  const googleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    // signInWithPopup(auth, provider);
+    signInWithRedirect(auth, provider);
+  };
+
   const signIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
@@ -53,6 +63,7 @@ const AuthProvider = ({ children }) => {
     user,
     logOut,
     signIn,
+    googleSignIn,
   };
 
   return (

@@ -35,6 +35,10 @@
   border: none;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .loader {
   border: 8px solid var(--secondary-color);
   border-top: 8px solid var(--primary-color);
