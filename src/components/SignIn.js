@@ -3,15 +3,36 @@ import { useAuth } from '../context/auth-context';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function SignIn({ formError, setFormError }) {
-  const { loginState, dispatch, setIsActive } = useAuth();
+  const { dispatch, setIsActive, signIn, loginState } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const logInFormHandler = e => {
+  const logInFormHandler = async e => {
     e.preventDefault();
+    setFormError({
+      errorMsg: '',
+      isError: false,
+    });
+    try {
+      await signIn(loginState.email, loginState.password);
+      navigate('/home');
+    } catch (e) {
+      setFormError({
+        errorMsg: e.message,
+        isError: true,
+      });
+    }
   };
   return (
     <div className="form login">
-      <span className="form__title heading-3">Login</span>
+      <div className="flex">
+        <span className="form__title heading-3">Login</span>
+        <button
+          onClick={() => dispatch({ type: 'FILL_GUEST' })}
+          className="btn outline-danger t-c-2 final-cta__2  m-l-auto"
+        >
+          Sign in with Google
+        </button>
+      </div>
       <form onSubmit={logInFormHandler}>
         <div className="input-field">
           <input

@@ -1,4 +1,11 @@
-import { createContext, useContext, useReducer, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
+import { initialState, signInReducer } from '../reducers/auth-reducer';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -10,73 +17,42 @@ import { auth } from '../firebaseApp';
 const authContext = createContext();
 const useAuth = () => useContext(authContext);
 
-const initialState = {
-  showPassword: false,
-  email: '',
-  password: '',
-  rememberMe: false,
-  signUpFirstName: '',
-  signUpLastName: '',
-  signUpEmail: '',
-  signUpPassword: '',
-  signUpConfirmPassword: '',
-};
-
-const signInReducer = (state, action) => {
-  switch (action.type) {
-    case 'RESET_FORM':
-      return initialState;
-    case 'TEXT_INPUT':
-      return {
-        ...state,
-        [action.payload.key]: action.payload.value,
-      };
-    case 'SIGN_IN_CHECKBOX':
-      return {
-        ...state,
-        rememberMe: action.payload,
-      };
-    case 'SWITCH_FORM':
-      return {
-        ...state,
-        isActive: !state.isActive,
-      };
-    case 'PASSWORD_SHOW':
-      return {
-        ...state,
-        showPassword: !state.showPassword,
-      };
-
-    case 'SWITCH_AUTH':
-      return {
-        ...state,
-        isAuth: !state.isAuth,
-      };
-
-    case 'FILL_GUEST':
-      return {
-        ...state,
-        email: 'adarshbalika@gmail.com',
-        password: 'adarshBalika123',
-      };
-
-    default:
-      throw new Error(`Unknown action type: ${action.type}`);
-  }
-};
-
 const AuthProvider = ({ children }) => {
   const [isActive, setIsActive] = useState(false);
+  const [user, setUser] = useState({});
   const [loginState, dispatch] = useReducer(signInReducer, initialState);
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+      console.log(currentUser);
+      setUser(currentUser);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logOut = () => {
+    return signOut(auth);
+  };
+
   const contextValue = {
     loginState,
     dispatch,
     createUser,
     isActive,
     setIsActive,
+    user,
+    logOut,
+    signIn,
   };
 
   return (

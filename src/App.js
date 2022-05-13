@@ -2,17 +2,24 @@ import './App.css';
 import Homepage from './pages/Homepage';
 import QuizPage from './pages/QuizPage';
 import { Routes, Route, Link } from 'react-router-dom';
-import { app } from './firebaseApp';
 import EndScorePage from './components/EndScorePage';
+import RequiresAuth from './components/RequiresAuth';
 import { Auth } from './pages/Auth';
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Auth />} />
         <Route path="/quiz/:quizId" element={<QuizPage />} />
         <Route path="/score" element={<EndScorePage />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route
+          path="/home"
+          element={
+            <RequiresAuth>
+              <Homepage />
+            </RequiresAuth>
+          }
+        />
         <Route
           path="*"
           element={

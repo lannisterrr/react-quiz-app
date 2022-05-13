@@ -25,7 +25,7 @@ function SignUp({ formError, setFormError }) {
           loginState.signUpEmail,
           loginState.signUpConfirmPassword
         );
-        navigate('/');
+        navigate('/home');
       } catch (e) {
         console.log(e);
       }

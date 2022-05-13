@@ -31,6 +31,10 @@
   background: var(--primary-color);
 }
 
+.btn.btn-accent.log {
+  border: none;
+}
+
 .loader {
   border: 8px solid var(--secondary-color);
   border-top: 8px solid var(--primary-color);
