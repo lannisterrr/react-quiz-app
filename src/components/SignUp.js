@@ -4,29 +4,43 @@ import { useAuth } from '../context/auth-context';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function SignUp({ formError, setFormError }) {
-  const { loginState, dispatch, signUpHandler, setAuth } = useAuth();
+  const { loginState, dispatch, createUser, setIsActive } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const formSubmitHandler = e => {
+
+  const formSubmitHandler = async e => {
     e.preventDefault();
     const letter = /[a-zA-Z]/;
     const number = /[0-9]/;
     const valid =
-      number.test(loginState.signUpPassword) &&
-      letter.test(loginState.signUpPassword);
+      number.test(loginState.signUpConfirmPassword) &&
+      letter.test(loginState.signUpConfirmPassword);
 
-    if (valid) {
-      signUpHandler(
-        loginState.signUpEmail,
-        loginState.signUpPassword,
-        loginState.signUpFirstName,
-        loginState.signUpLastName,
-        setAuth,
-        navigate,
-        location
-      );
+    const passwordMatch =
+      loginState.signUpPassword === loginState.signUpConfirmPassword;
+
+    if (passwordMatch && valid) {
+      try {
+        await createUser(
+          loginState.signUpEmail,
+          loginState.signUpConfirmPassword
+        );
+        navigate('/');
+      } catch (e) {
+        console.log(e);
+      }
     } else {
-      setFormError(true);
+      !passwordMatch &&
+        setFormError({
+          errorMsg: 'Password not matched',
+          isError: true,
+        });
+
+      !valid &&
+        setFormError({
+          errorMsg: 'Password should be alpha numeric',
+          isError: true,
+        });
       setTimeout(() => setFormError(false), 2000);
     }
   };
@@ -103,6 +117,32 @@ function SignUp({ formError, setFormError }) {
           <i className="uil uil-lock form-icon left-icon"></i>
         </div>
 
+        <div className="input-field">
+          <input
+            value={loginState.signUpConfirmPassword}
+            onChange={event =>
+              dispatch({
+                type: 'TEXT_INPUT',
+                payload: {
+                  key: 'signUpConfirmPassword',
+                  value: event.target.value,
+                },
+              })
+            }
+            type={loginState.showPassword ? 'text' : 'password'}
+            placeholder="confirm password"
+            className="form__email-input password"
+            required
+          />
+          <i className="uil uil-lock form-icon left-icon"></i>
+          <i
+            onClick={() => dispatch({ type: 'PASSWORD_SHOW' })}
+            className={`uil uil-eye${
+              loginState.showPassword ? '' : '-slash'
+            }  form-icon showHidePw`}
+          ></i>
+        </div>
+
         <div className="checkbox-container">
           <div className="checkbox-content">
             <Checkbox
@@ -128,15 +168,13 @@ function SignUp({ formError, setFormError }) {
         <span className="f-6">
           Already a member?
           <span
-            onClick={() => dispatch({ type: 'SWITCH_FORM' })}
+            onClick={() => setIsActive(prev => !prev)}
             className="f-6 f-bold form-change-link  t-c-4 p-h-2"
           >
             Sign-in now
           </span>
         </span>
-        {formError && (
-          <p className="f-7 t-c-3">Password shoulde be alpha numeric</p>
-        )}
+        {formError.isError && <p className="f-7 t-c-3">{formError.errorMsg}</p>}
       </div>
     </div>
   );

@@ -3,8 +3,11 @@ import { SignIn } from '../components/SignIn';
 import { SignUp } from '../components/SignUp';
 import { useAuth } from '../context/auth-context';
 function Auth() {
-  const { loginState, dispatch } = useAuth();
-  const [formError, setFormError] = useState(false);
+  const { dispatch, isActive } = useAuth();
+  const [formError, setFormError] = useState({
+    isError: false,
+    errorMsg: '',
+  });
 
   useEffect(() => {
     dispatch({ type: 'RESET_FORM' });
@@ -12,9 +15,7 @@ function Auth() {
 
   return (
     <main id="login-signup-page">
-      <section
-        className={`forms__container ${loginState.isActive ? 'active' : ''}`}
-      >
+      <section className={`forms__container ${isActive ? 'active' : ''}`}>
         <div className="forms">
           <SignIn formError={formError} setFormError={setFormError} />
           <SignUp formError={formError} setFormError={setFormError} />

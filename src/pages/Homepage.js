@@ -7,6 +7,7 @@ function Homepage() {
   return (
     <div id="card-body">
       <p className="heading-2 t-c-1 center-text">Brain Quiz</p>
+      <span className="heading-3">Welcome </span>
       <main className="card-wrapper">
         {data.map(item => (
           <QuizCard key={item.id} item={item} />

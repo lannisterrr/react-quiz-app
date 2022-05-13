@@ -1,10 +1,16 @@
 import { createContext, useContext, useReducer, useState } from 'react';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from 'firebase/auth';
+import { auth } from '../firebaseApp';
 
 const authContext = createContext();
 const useAuth = () => useContext(authContext);
 
 const initialState = {
-  isActive: false,
   showPassword: false,
   email: '',
   password: '',
@@ -13,23 +19,13 @@ const initialState = {
   signUpLastName: '',
   signUpEmail: '',
   signUpPassword: '',
+  signUpConfirmPassword: '',
 };
 
 const signInReducer = (state, action) => {
   switch (action.type) {
     case 'RESET_FORM':
-      return {
-        ...state,
-        showPassword: false,
-        email: '',
-        password: '',
-        rememberMe: false,
-        signUpFirstName: '',
-        signUpLastName: '',
-        signUpEmail: '',
-        signUpPassword: '',
-      };
-
+      return initialState;
     case 'TEXT_INPUT':
       return {
         ...state,
@@ -70,10 +66,17 @@ const signInReducer = (state, action) => {
 };
 
 const AuthProvider = ({ children }) => {
+  const [isActive, setIsActive] = useState(false);
   const [loginState, dispatch] = useReducer(signInReducer, initialState);
+  const createUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
   const contextValue = {
     loginState,
     dispatch,
+    createUser,
+    isActive,
+    setIsActive,
   };
 
   return (

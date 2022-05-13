@@ -3,19 +3,11 @@ import { useAuth } from '../context/auth-context';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function SignIn({ formError, setFormError }) {
-  const { loginState, dispatch, logInHandler, setAuth, auth } = useAuth();
+  const { loginState, dispatch, setIsActive } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const logInFormHandler = e => {
     e.preventDefault();
-    logInHandler(
-      loginState.email,
-      loginState.password,
-      setAuth,
-      navigate,
-      location,
-      setFormError
-    );
   };
   return (
     <div className="form login">
@@ -98,13 +90,15 @@ function SignIn({ formError, setFormError }) {
         <span className="f-6">
           Not a member?
           <span
-            onClick={() => dispatch({ type: 'SWITCH_FORM' })}
+            onClick={() => setIsActive(prev => !prev)}
             className="f-6 f-bold form-change-link  t-c-4 p-h-2"
           >
             Signup now
           </span>
         </span>
-        {formError && <p className="f-7 t-c-3">Invalid UserName or Password</p>}
+        {formError.isError && (
+          <p className="f-7 t-c-3">Invalid UserName or Password</p>
+        )}
       </div>
     </div>
   );
