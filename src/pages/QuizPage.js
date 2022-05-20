@@ -22,24 +22,3 @@ function QuizPage() {
 }
 
 export default QuizPage;
-
-/**
-   // const fetch = async () => {
-  //   const data = await getDocs(collection(db, 'questions'));
-  //   const res = data.docs.map(item => item.data());
-  //   console.log(res[0].data);
-  // };
-
-  // // const dataRef = collection(db, 'questions');
-
-  // // useEffect(() => {
-  // //   addDoc(dataRef, {
-  // //     data: data,
-  // //   });
-  // // }, []);
-
-  // useEffect(() => {
-  //   fetch();
-  // }, []);
- 
- */
