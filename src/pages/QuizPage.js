@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import QuizBody from '../components/QuizBody';
 import QuizHeader from '../components/QuizHeader';
-import { db } from '../firebaseApp';
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import { data } from '../data';
 import { useParams } from 'react-router-dom';
