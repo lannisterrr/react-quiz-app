@@ -1,8 +1,10 @@
 @import url('https://cerebrumui.netlify.app/style.css');
+@import url('https://unicons.iconscout.com/release/v4.0.0/css/line.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 @import './styles/homepage.css';
 @import './styles/quizCard.css';
 @import './styles/quizPage.css';
+@import './styles/auth.css';
 
 :root {
   --complimentary-text-color: #ffd200;
@@ -27,6 +29,14 @@
 
 .red-bg {
   background: var(--primary-color);
+}
+
+.btn.btn-accent.log {
+  border: none;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .loader {

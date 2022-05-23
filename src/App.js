@@ -2,13 +2,24 @@ import './App.css';
 import Homepage from './pages/Homepage';
 import QuizPage from './pages/QuizPage';
 import { Routes, Route, Link } from 'react-router-dom';
-
+import EndScorePage from './components/EndScorePage';
+import RequiresAuth from './components/RequiresAuth';
+import { Auth } from './pages/Auth';
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="quiz" element={<QuizPage />} />
+        <Route path="/" element={<Auth />} />
+        <Route path="/quiz/:quizId" element={<QuizPage />} />
+        <Route path="/score" element={<EndScorePage />} />
+        <Route
+          path="/home"
+          element={
+            <RequiresAuth>
+              <Homepage />
+            </RequiresAuth>
+          }
+        />
         <Route
           path="*"
           element={

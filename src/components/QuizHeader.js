@@ -1,15 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuizState } from '../context/state-context';
-import { data } from '../data';
 
-function QuizHeader() {
+function QuizHeader({ data, quiz }) {
   const { state, dispatch } = useQuizState();
+
   return (
     <header>
-      <h1 className="heading-2 yellow-text center-text">
-        {data[state.currentQuizActive].name}
-      </h1>
+      <h1 className="heading-2 yellow-text center-text">{quiz.name}</h1>
       <Link
         to="/"
         onClick={() => dispatch({ type: 'RESET' })}
@@ -21,8 +18,7 @@ function QuizHeader() {
         <p className="heading-3 yellow-text">
           Question:{' '}
           <span className="t-c-3">
-            {state.currentQuestion + 1}/
-            {data[state.currentQuizActive].questions.length}
+            {state.currentQuestion + 1}/{quiz.questions.length}
           </span>
         </p>
         <p className="heading-4 yellow-text">

@@ -1,44 +1,34 @@
-import { data } from '../data';
-
 import React, { useState } from 'react';
 import { useQuizState } from '../context/state-context';
+import { useNavigate } from 'react-router-dom';
 
-function Options({ item }) {
+function Options({ item, quiz, index }) {
   const { state, dispatch } = useQuizState();
-
+  const navigate = useNavigate();
   const [correct, setCorrect] = useState(null);
-
-  // save the user clicked value in a context
-
-  // what user click change that to green or red  - working
-  // make the correct answer green
-
-  // 1. three props - onclick , isGreen , isRed
-  // 2. what user clicked - save that or initially check
-  //3. Check index of the item selected and change color according to index
-  // 4. what clicked = true or not , if true then green or red
-
-  const changeBgColor = (item, index) => {
-    // Not yet working code
-    data[0].questions[state.currentQuestion].answerOptions.map(item => {
-      return item.isCorrect ? { ...item, setSelect: true } : item;
-    });
+  const changeBgColor = item => {
     setCorrect(item.isCorrect);
   };
-
   const changeQuestionHandler = item => {
-    const optionSelected = item.id;
     item.isCorrect && dispatch({ type: 'INCREASE_SCORE' });
-    if (state.currentQuestion + 1 < data[0].questions.length) {
-      changeBgColor(item, optionSelected);
-      setTimeout(() => {
-        dispatch({
-          type: 'NEXT_QUESTION',
-        });
-      }, 1200);
-    } else {
-      dispatch({ type: 'SCORE_SHOW' });
+    const nextQuestion = state.currentQuestion + 1;
+    if (nextQuestion === quiz.questions.length) {
+      navigate('/score');
     }
+    changeBgColor(item);
+    dispatch({
+      type: 'ADD_QUESTION_DATA',
+      payload: {
+        userAnswerId: item.id,
+        questionIndex: state.currentQuestion,
+        answerIndex: index,
+      },
+    });
+    setTimeout(() => {
+      dispatch({
+        type: 'NEXT_QUESTION',
+      });
+    }, 1200);
   };
 
   return (
